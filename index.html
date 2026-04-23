@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💣 SMS Bomber | MR-AHAD 🚀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff0000;
+            --secondary: #00ff00;
+            --dark: #121212;
+            --light: #ffffff;
+            --shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: url('https://i.ibb.co.com/xMDcGTp/20241015-173222.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            text-shadow: 0 0 10px var(--primary);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 1em;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .line {
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 20px auto;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--light);
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--primary);
+            border-color: var(--secondary);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), #ff3333);
+            color: var(--light);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(135deg, #ff3333, var(--primary));
+        }
+
+        button:disabled {
+            background: #444;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .status-item {
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .success {
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        .failure {
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .error {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+        }
+
+        .info {
+            background: rgba(0, 255, 0, 0.2);
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        <h1>💣 SMS BOMBER</h1>
+        <h2>Powered by MR-AHAD</h2>
+        <div class="line"></div>
+
+        <div class="input-group">
+            <label for="number">📞 Phone Number (e.g: 01712345678)</label>
+            <input type="text" id="number" placeholder="Enter phone number" required>
+        </div>
+
+        <div class="input-group">
+            <label for="amount">🔢 Amount (Max: 50)</label>
+            <input type="number" id="amount" placeholder="Enter amount" min="1" max="50" value="10" required>
+        </div>
+
+        <button onclick="startBombing()">🚀 START BOMBING 💥</button>
+        <div class="spinner" id="spinner"></div>
+
+        <div class="status">
+            <div class="status-item success">
+                <span id="successCount">0</span> ✅ Success
+            </div>
+            <div class="status-item failure">
+                <span id="failureCount">0</span> ❌ Failed
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <footer>
+        <p>Developed by <a href="https://t.me/MR_AHAD" target="_blank">MR-AHAD</a> | For Educational Purpose Only</p>
+    </footer>
+
+    
+<script src="protected_1776928758441.js"></script>
+    
+</body>
+</html>
